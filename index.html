@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app='hollaAtHollyApp'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Holla at Holly</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css">  
+    <script type="text/javascript" src='bower_components/angular/angular.js'></script>
+    <script type="text/javascript" src='bower_components/angular-route/angular-route.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>
+    <script type="text/javascript" src='scripts/app.js'></script>
+    <script type="text/javascript" src='scripts/controllers.js'></script>
+    
+  </head>
+  <body>
+    <header>
+      <h1>HOLLAatHOLLY</h1>
+      <nav>
+        <a href="#/new">Add Actor</a>
+        <a href="#">Edit Actor</a>
+      </nav>
+    </header>
+    <section>
+      <div>
+        <h2>YOUR FAVORITE HOLLYWOOD DIRECTORY</h2>
+      </div>
+      
+      <div ng-view></div>
+      
+    </section>
+  </body>
+</html>

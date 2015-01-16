@@ -1,0 +1,39 @@
+header {
+  background: tomato;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 auto;
+}
+
+nav a {
+  display: inline;
+  margin: 0 7em;
+}
+
+section {
+  background: white;
+}
+
+form {
+  margin: 0 20%;
+}
+
+.form-control:focus {
+  outline: 0;
+  border: thin green solid;
+}
+
+.homeButton {
+  width: 100%;
+  text-align: center;
+}
+.home {
+  background: green;
+  width: 20%;
+  height: 4em;
+  color: white;
+  font-weight: bold;
+
+}

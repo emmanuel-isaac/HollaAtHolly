@@ -1,0 +1,6 @@
+<div>
+  Search: <input ng-model='query'>
+  <ul>
+    <li ng-repeat='actor in actors | filter: query | orderBy: orderProp'><a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)'>{{actor.name}}</a></li>
+  </ul>
+</div> 
