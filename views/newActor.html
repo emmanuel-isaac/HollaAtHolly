@@ -17,8 +17,7 @@
       <label for='addSex'>Sex</label>
       <input ng-model = 'sex' type = 'text' class='form-control' id='addSex'><br/>
 
-      Movies: <input ng-model = 'movies' type = text class='form-control'><br/>
-      <input ng-model = 'movies2' type = text class='form-control'><br/>
+      
 
       <label for='addRating'>Rating</label>
       <input ng-model  = 'rating' type = 'text' class='form-control' id='addRating'><br/>
@@ -28,9 +27,14 @@
       <label for='addAbout'>About</label>
       <input ng-model = 'about' type = 'text' class='form-control' id='addAbout'><br/>
 
-      <input type='submit' ng-model='SUBMIT' ng-click='addActor()' class='btn btn-default'>
     </div>
+  </form>    
+  <form>
+    <label for='addMovies'>Movies</label>
+    <input ng-model = 'movies' type ='text' class='form-control' id='addMovies'><br/>
+    <button ng-click='addToMovies()'>Add</button>
   </form>
+  <input type='submit' ng-model='SUBMIT' ng-click='addActor()' class='btn btn-default'>
 
   <div class='homeButton'>
     <a href='#/actors'><button class='btn btn-default home'>Home</button></a>
