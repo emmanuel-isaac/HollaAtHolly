@@ -35,7 +35,8 @@
         <input ng-model = 'about' type = 'text' class='form-control' id='addAbout'><br/>
 
       </div>
-    </form>    
+    </form>  
+      
     <form>
       Movies: <input ng-model = 'movies' type ='text' class='form-control'><br/>
       <button ng-click='addMovies()'>Add Movie</button>
@@ -44,10 +45,6 @@
     <button type='submit' ng-click='submitChanges(actor.name)' class='btn btn-default'>Edit {{name}}</button>
 
     <button class='btn btn-default' ng-click='close()'>Close</button>
-
-    <div class='homeButton'>
-      <a href='#/actors'><button class='btn btn-default home'>Home</button></a>
-    </div>
     
   </div>
 </div>

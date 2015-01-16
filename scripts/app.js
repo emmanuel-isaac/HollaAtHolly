@@ -29,6 +29,6 @@ hollaAtHollyApp.config(['$routeProvider', function ($routeProvider) {
     })
 
     .otherwise({
-      redirectTo: '/actors'
+      redirectTo: '/#/actors'
     });
 }]);
