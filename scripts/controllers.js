@@ -84,7 +84,6 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   http({
     method: 'GET',
     url: 'https://holly-diary.herokuapp.com/actors'
-    // url: 'http://localhost:5000/actors'
   })
 
   .success(function (data) {
@@ -128,7 +127,6 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   };
 
   scope.submitChanges = function  () {
-    console.log(scope.oldName);
     var actorObject = {
       name: scope.name,
       day: scope.day,
@@ -140,20 +138,18 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
       lightSkinned: scope.lightSkinned,
       about: scope.about
     };
-    console.log(actorObject);
+    console.log(actorObject.id);
 
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(actorObject.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       http({
         method: 'PUT',
-        url: 'http://holly-diary.herokuapp.com/actors' + scope.oldName,
-        // url: 'http://localhost:5000/actors/' + scope.oldName,
+        url: 'http://holly-diary.herokuapp.com/actors/' + scope.oldName,
         headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
         data: $.param(actorObject)
       })
 
       .success(function () {
         alert('Actor Has Been Updated Successfully');
-        // location.path('/actors');
         scope.toggleEditForm = !scope.toggleEditForm;
         scope.reload();
       })
@@ -175,12 +171,11 @@ appControllers.controller('actorDetailController', ['$scope', '$http', function 
   http({
     method: 'GET',
     url: 'https://holly-diary.herokuapp.com/actors/' + actorName
-    // url: 'http://localhost:5000/actors/' + actorName
     })
 
-    .success(function (data) {
-      console.log(data);
-    });
+  .success(function (data) {
+    console.log(data);
+  });
   
 }]);
 
@@ -195,7 +190,6 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
 
   };
   scope.addActor = function () {
-    // console.log(scope.films);
     var actorObject = {
       name: scope.name,
       day: scope.day,
@@ -211,14 +205,13 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(actorObject.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       http({
       method: 'POST',
-      url: 'http://localhost:5000/actors',
-      // url: 'https://holly-diary.herokuapp.com/actors',
+      url: 'https://holly-diary.herokuapp.com/actors',
       headers : { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: $.param(actorObject)
       })
 
       .success(function () {
-        location.path('#/actors');
+        location.path('/actors');
         alert('New Actor Created Successfully');
       })
 
@@ -226,16 +219,6 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
         alert('Some fields were not filled');
       });
     }
-    
-    // console.log(movies);
-
-    // var deleteObject = {
-    //   http({
-    //     method: 'DELETE',
-    //     url: 'https://holly-diary.herokuapp.com/actors'
-    //   });
-    // }
   };
-
 }]);
 
