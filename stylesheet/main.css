@@ -9,11 +9,11 @@ body {
 
 header {
   background: #fff;
-  text-align: center;
+  text-align: left;
   position: relative;
-  top: -20px;
   width: 100%;
   height: 50px;
+  padding-left: 30px;
 }
 
 nav {
@@ -52,8 +52,9 @@ section {
 
 h1 {
   margin: 0 auto;
-  /*position: relative;
-  bottom: 15px;*/
+  font-family: 'Raleway';
+  color: darkblue;
+
 }
 
 
@@ -142,7 +143,7 @@ footer {
 
 img {
   width: 70%;
-  height: 180px;
+  height: 200px;
   border-radius: 5px;
   margin-top: -5px;
   box-shadow: 0em 0em 1em lightblue;
@@ -150,6 +151,7 @@ img {
 
 img:hover {
   box-shadow: 0em 0em 3em lightblue;
+  width: 72%;
 }
 
 .edit-button {
@@ -175,6 +177,12 @@ label {
   color: #fff;
 }
 
+.add-movie-button {
+  position: relative;
+  bottom: 34px;
+  left: 45%;
+}
+
 #actor-detail {
   color: white;
   padding: 0 15% 20px;
@@ -182,7 +190,7 @@ label {
 }
 
 .actor-detail-text {
-  text-align: left;
+  text-align: justify;
 }
 
 #actor-detail img {
@@ -195,6 +203,11 @@ label {
 
 .info-header {
   margin-bottom: 30px;
+}
+
+button {
+  font-family: Dosis;
+  color: red;
 }
 
 

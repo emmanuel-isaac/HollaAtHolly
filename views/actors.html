@@ -6,7 +6,7 @@
         <li  class='col-md-3' ng-repeat='actor in actors | filter: query | orderBy: orderProp'>
           <a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)'>
             <p class='actor-tag'>{{actor.name}}</p><br/>
-            <img src="../img/{{actor.name}}.jpg">
+            <img src="../img/{{actor.name}}.jpg" alt='{{actor.name}}'>
           </a><br/>
           <button ng-click='editActor(actor.name, actor.dateOfBirth, actor.sex, actor.rating, actor.lightSkinned, actor.about)' class='btn btn-default edit-button'>
             Edit Profile
@@ -25,13 +25,19 @@
 
           <h4 class='h4'>Date of Birth</h4>
           <label for='addDay'>Day</label>
-          <input ng-model='day' type='number' class='form-control' id='addDay'>
+          <select name="select" ng-model='day' class='form-control' id='addDay'>
+            <option ng-repeat='day in days' value="{{day}}">{{day}}</option>
+          </select><br/>
 
           <label for='addMonth'>Month</label>
-          <input ng-model='month' type= 'number' class='form-control' id='addMonth'>
+          <select name="select" ng-model='month' class='form-control' id='addMonth'>
+            <option ng-repeat='month in months' value="{{month}}">{{month}}</option>
+          </select><br/>
 
           <label for='addYear'>Year</label>
-          <input ng-model='year' type = 'number' class='form-control' id='addYear'><br/>
+          <select name="select" ng-model='year' class='form-control' id='addYear'>
+            <option ng-repeat='year in years' value="{{year}}">{{year}}</option>
+          </select><br/>
 
           <label for='addSex'>Sex</label>
           <select name="select" ng-model='sex' class='form-control' id='addSex'>
@@ -58,12 +64,12 @@
       <form class='add-movies'>
         Press 'Enter' After Every Movie Input
         <input ng-model = 'movies' type ='text' class='form-control' placeholder='Add movies featured in'>
-        <span><button ng-click='addMovies()' class='btn btn-default'>Add Movie</button></span>
+        <span><button ng-click='addMovies()' class='btn btn-primary add-movie-button'>Add Movie</button></span>
       </form>
 
-      <button type='submit' ng-click='submitChanges(actor.name)' class='btn btn-default'>Submit Changes</button>
+      <button type='submit' ng-click='submitChanges(actor.name)' class='btn btn-default btn-success'>Submit Changes</button>
 
-      <button class='btn btn-default' ng-click='close()'>Close</button>  
+      <button class='btn btn-default btn-primary' ng-click='close()'>Close</button>  
     </div>
   </div>
 </div> 

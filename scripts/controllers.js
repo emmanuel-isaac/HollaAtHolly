@@ -20,59 +20,36 @@ var dayValidator = function (day) {
   if (day == undefined) {
     alert('Please, fill the \'day\' field');
     return false;
-  } else if (+day >= 1 && +day <= 31) {
-    return true;
-  } else {
-    alert('Please, make a valid day entry');
-    return false;
-  }
+  } else {return true};
 };
 
 var monthValidator = function (month) {
   if (month == undefined) {
     alert('Please, fill the \'month\' field');
     return false;
-  }else if (+month >= 1 && +month <= 12) {
-    return true;
-  } else {
-    alert('Please, make a valid month entry');
-    return false;
-  }
+  } else return true;
 };
 
 var yearValidator = function (year) {
   if (year == undefined) {
     alert('Please, fill the \'year\' field');
     return false;
-  } else if (+year >= 1900 && +year <= 2015) {
-    return true;
-  } else {
-    alert('Please, make a valid year entry (between 1900 and 2015');
-    return false;
-  }
+  } else return true;
 };
 
 var ratingValidator = function (rating) {
   if (rating == undefined) {
     alert('Please, fill the \'rating\' field');
     return false;
-  } else if (+rating >= 1 && +rating <= 5) {
-    return true;
-  } else {
-    alert('Please, make a valid rating entry');
-    return false;
-  }
+  } else return true;
 };
 
 var sexValidator = function (sex) {
   if (sex == undefined) {
     alert('Please, fill the \'sex\' field');
     return false;
-  } else if (sex == 'male' || sex == 'female') {
-    return true;
   } else {
-    alert('Please enter \'male\' or \'female\'');
-    return false;
+    return true;
   }
 };
 
@@ -81,6 +58,22 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   scope.reload = function () {
     window.location.reload();
   };
+
+  scope.months = [];
+  scope.years = [];
+  scope.days = [];
+
+  for (var i=1; i<=12; i++) {
+    scope.months.push(i);
+  }
+
+  for (var i=1900; i<=2015; i++) {
+    scope.years.push(i);
+  }
+
+  for (var i=1; i<=31; i++) {
+    scope.days.push(i);
+  }
 
   http({
     method: 'GET',
@@ -219,7 +212,11 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
       about: scope.about
     };
 
-    if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(actorObject.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
+    console.log(scope.day);
+    console.log(scope.month);
+
+    if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(scope.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
+      console.log('sending');
       http({
       method: 'POST',
       url: 'https://holly-diary.herokuapp.com/actors',
