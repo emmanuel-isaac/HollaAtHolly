@@ -1,51 +1,69 @@
-<div>
-  Search: <input ng-model='query'>
-  <ul>
-    <li ng-repeat='actor in actors | filter: query | orderBy: orderProp'><a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)'>{{actor.name}}</a><button ng-click='editActor(actor.name, actor.dateOfBirth, actor.sex, actor.rating, actor.lightSkinned, actor.about)' class='btn btn-default'>Edit {{actor.name}}'s Info</button></li>
-  </ul>
-
-  <div ng-show='toggleEditForm'>
-    <div id='addForm'>
-    <form role='form'>
-      <div class='form-group'>
-        <label for='addName'>Name:</label>
-        <input ng-model='name' type='text' class='form-control' id='addName' ng-model='name'><br/>
-
-        <h4>Date of Birth</h4>
-        <label for='addDay'>Day</label>
-        <input ng-model='day' type='number' class='form-control' id='addDay'>
-
-        <label for='addMonth'>Month</label>
-        <input ng-model='month' type= 'number' class='form-control' id='addMonth'>
-
-        <label for='addYear'>Year</label>
-        <input ng-model='year' type = 'number' class='form-control' id='addYear'><br/>
-
-        <label for='addSex'>Sex</label>
-        <input ng-model = 'sex' type = 'text' class='form-control' id='addSex'><br/>
-
-        
-
-        <label for='addRating'>Rating</label>
-        <input ng-model  = 'rating' type = 'text' class='form-control' id='addRating'><br/>
-
-        <input ng-model = 'lightSkinned' type = 'checkbox' value = 'medium' id='skinColor'><label for='skinColor'>Light-Skinned</label><br/>
-
-        <label for='addAbout'>About</label>
-        <input ng-model = 'about' type = 'text' class='form-control' id='addAbout'><br/>
-
+<div id='actor-list'>
+  <div ng-hide='toggleEditForm'>
+    <input ng-model='query' placeholder='Search Actors' class='search-input'>
+    <ul class='row actor-list'>
+      <div class='split'>
+        <li  class='col-md-3' ng-repeat='actor in actors | filter: query | orderBy: orderProp'>
+          <a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)'>
+            <p class='actor-tag'>{{actor.name}}</p><br/>
+            <img src="../img/{{actor.name}}.jpg">
+          </a><br/>
+          <button ng-click='editActor(actor.name, actor.dateOfBirth, actor.sex, actor.rating, actor.lightSkinned, actor.about)' class='btn btn-default edit-button'>
+            Edit Profile
+          </button>
+        </li>
       </div>
-    </form>  
-      
-    <form>
-      Movies: <input ng-model = 'movies' type ='text' class='form-control'><br/>
-      <button ng-click='addMovies()'>Add Movie</button>
-    </form>
-
-    <button type='submit' ng-click='submitChanges(actor.name)' class='btn btn-default'>Edit {{name}}</button>
-
-    <button class='btn btn-default' ng-click='close()'>Close</button>
-    
+    </ul>
   </div>
-</div>
+
+  <div class='edit-form' ng-show='toggleEditForm'>
+    <div>
+      <form role='form'>
+        <div class='form-group'>
+          <label for='addName'>Name:</label>
+          <input ng-model='name' type='text' class='form-control namebox' id='addName' ng-model='name'><br/>
+
+          <h4 class='h4'>Date of Birth</h4>
+          <label for='addDay'>Day</label>
+          <input ng-model='day' type='number' class='form-control' id='addDay'>
+
+          <label for='addMonth'>Month</label>
+          <input ng-model='month' type= 'number' class='form-control' id='addMonth'>
+
+          <label for='addYear'>Year</label>
+          <input ng-model='year' type = 'number' class='form-control' id='addYear'><br/>
+
+          <label for='addSex'>Sex</label>
+          <select name="select" ng-model='sex' class='form-control' id='addSex'>
+            <option value="male">male</option> 
+            <option value="female">female</option>
+          </select><br/>
+
+          <label for='addRating'>Rating</label>
+          <select name="select" ng-model='rating' class='form-control' id='addRating'>
+            <option value="1">1</option> 
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select><br/>
+
+          <input ng-model = 'lightSkinned' type = 'checkbox' value = 'large' id='skinColor'><label for='skinColor'>Light-Skinned</label><br/>
+
+          <label for='addAbout'>About</label>
+          <input ng-model = 'about' type = 'text' class='form-control' id='addAbout'><br/>
+        </div>
+      </form>  
+      
+      <form class='add-movies'>
+        Press 'Enter' After Every Movie Input
+        <input ng-model = 'movies' type ='text' class='form-control' placeholder='Add movies featured in'>
+        <span><button ng-click='addMovies()' class='btn btn-default'>Add Movie</button></span>
+      </form>
+
+      <button type='submit' ng-click='submitChanges(actor.name)' class='btn btn-default'>Submit Changes</button>
+
+      <button class='btn btn-default' ng-click='close()'>Close</button>  
+    </div>
+  </div>
 </div> 

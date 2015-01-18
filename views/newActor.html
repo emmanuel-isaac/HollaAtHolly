@@ -1,41 +1,59 @@
-<div id='addForm'>
-  <form role='form'>
+<div class='homeButton'>
+  <a href='#/actors'><button class='btn btn-primary btn-lg home'>Go Back Home</button></a>
+</div>
+
+<div id='addForm' class='row'>
+  <form role='form' class='form-horizontal newActorForm'>
     <div class='form-group'>
-      <label for='addName'>Name:</label>
-      <input ng-model='name' type='text' class='form-control' id='addName'><br/>
+      <input ng-model='name' type='text' class='form-control' id='addName' placeholder='Full Name'><br/>
 
-      <h4>Date of Birth</h4>
-      <label for='addDay'>Day</label>
-      <input ng-model='day' type='number' class='form-control' id='addDay'>
+      <label for='addDay'>Date Of Birth (Day)</label>
+      <select name="select" ng-model='day' class='form-control' id='addDay'>
+        <option ng-repeat='day in days' value="day">{{day}}</option>
+      </select><br/>
 
-      <label for='addMonth'>Month</label>
-      <input ng-model='month' type= 'number' class='form-control' id='addMonth'>
+      <label for='addMonth'>Date Of Birth (Month)</label>
+      <select name="select" ng-model='month' class='form-control' id='addMonth'>
+        <option ng-repeat='month in months' value="month">{{month}}</option>
+      </select><br/>
 
-      <label for='addYear'>Year</label>
-      <input ng-model='year' type = 'number' class='form-control' id='addYear'><br/>
+      <label for='addYear'>Date Of Birth (Year)</label>
+      <select name="select" ng-model='year' class='form-control' id='addYear'>
+        <option ng-repeat='year in years' value="year">{{year}}</option>
+      </select><br/>
 
       <label for='addSex'>Sex</label>
-      <input ng-model = 'sex' type = 'text' class='form-control' id='addSex'><br/>
+      <select name="select" ng-model='sex' class='form-control' id='addSex'>
+        <option value="male">male</option> 
+        <option value="female">female</option>
+      </select><br/>
 
       <label for='addRating'>Rating</label>
-      <input ng-model  = 'rating' type = 'text' class='form-control' id='addRating'><br/>
+      <select name="select" ng-model='rating' class='form-control' id='addRating'>
+        <option value="1">1</option> 
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br/>
 
-      <input ng-model = 'lightSkinned' type = 'checkbox' value = 'medium' id='skinColor'><label for='skinColor'>Light-Skinned</label><br/>
+      <input ng-model = 'about' type = 'text' class='form-control' id='addAbout' placeholder='About'><br/>
 
-      <label for='addAbout'>About</label>
-      <input ng-model = 'about' type = 'text' class='form-control' id='addAbout'><br/>
+      <div class="checkbox">
+        <label>
+        <input type="checkbox" value="" ng-model = 'lightSkinned'>
+        Light-Skinned
+        </label>
+      </div>
 
     </div>
-  </form>    
-  <form>
-    <label for='addMovies'>Movies</label>
-    <input ng-model = 'movies' type ='text' class='form-control' id='addMovies'><br/>
-    <button ng-click='addToMovies()'>Add</button>
   </form>
-  <input type='submit' ng-model='SUBMIT' ng-click='addActor()' class='btn btn-default'>
 
-  <div class='homeButton'>
-    <a href='#/actors'><button class='btn btn-default home'>Home</button></a>
-  </div>
+  <form class='form-group form-horizontal'>
+    <input ng-model = 'movies' type ='text' class='form-control' id='addMovies' placeholder='Add Movies Actor Has Featured In. Click Add After Every Input'><br/>
+    <button ng-click='addToMovies()' class='btn btn-default'>Add</button><br/>
+  </form>
+
+  <button ng-click='addActor()' class='btn btn-lg btn-primary'>Submit</button>
   
 </div>

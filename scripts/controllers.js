@@ -81,6 +81,7 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   scope.reload = function () {
     window.location.reload();
   };
+
   http({
     method: 'GET',
     url: 'https://holly-diary.herokuapp.com/actors'
@@ -92,7 +93,7 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     scope.orderProp = 'name';
   });
 
-  scope.save = function save (name) {
+  scope.save = function (name) {
     console.log(name);
     actorName = name;
   };
@@ -138,7 +139,6 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
       lightSkinned: scope.lightSkinned,
       about: scope.about
     };
-    console.log(actorObject.id);
 
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(actorObject.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       http({
@@ -175,11 +175,28 @@ appControllers.controller('actorDetailController', ['$scope', '$http', function 
 
   .success(function (data) {
     console.log(data);
+    scope.actorDetail = data[0];
   });
   
 }]);
 
 appControllers.controller('newActorController', ['$scope', '$http','$location', function (scope, http, location) {
+  scope.months = [];
+  scope.years = [];
+  scope.days = [];
+
+  for (var i=1; i<=12; i++) {
+    scope.months.push(i);
+  }
+
+  for (var i=1900; i<=2015; i++) {
+    scope.years.push(i);
+  }
+
+  for (var i=1; i<=31; i++) {
+    scope.days.push(i);
+  }
+
   scope.films = [];
   scope.addToMovies = function () {
     console.log(scope.movies);

@@ -1,5 +1,21 @@
-<div>
-  <h3>ACTOR INFORMATION</h3>
+<div id='actor-detail'>
+  <h3 class='.h3 info-header'>ACTOR INFORMATION</h3>
+  <div class='row'>
+    <div class='col-md-6'>
+      <img src="../img/{{actorDetail.name}}.jpg" class='actor-detail-image'>
+    </div>
+    <div class='col-md-6 actor-detail-text'>
+      <p class='lead'>Name: {{actorDetail.name}}</p>
+      <p class='lead'>Date Of Birth: {{actorDetail.dateOfBirth[0].day}}/{{actorDetail.dateOfBirth[0].month}}/{{actorDetail.dateOfBirth[0].year}}</p>
+      <p class='lead'>Sex: {{actorDetail.sex}}</p>
+      <p class='lead'>Rating: {{actorDetail.rating}}</p>
+      <p class='lead'>Movies: <span ng-repeat='movie in actorDetail.movies'>{{movie}}, </span></p>
+    </div>
+    <div class='actor-about'>
+      <h5 class='h3'>ABOUT</h5>
+      <p class='lead'>{{actorDetail.about}}</p>
+    </div>
+  </div>
   
 </div>
-<a href='#/actors'><button>back</button></a>
+<a href='#/actors'><button class='btn btn-primary'>back</button></a>

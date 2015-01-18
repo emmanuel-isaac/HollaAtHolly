@@ -4,7 +4,7 @@
 
 var hollaAtHollyApp = angular.module('hollaAtHollyApp', [
   'ngRoute',
-  'appControllers'  
+  'appControllers'
 ]);
 
 hollaAtHollyApp.config(['$routeProvider', function ($routeProvider) {
