@@ -17,17 +17,17 @@ hollaAtHollyApp.config(['$routeProvider', '$locationProvider', function ($routeP
       templateUrl: 'views/layout.html'
     })
 
-    .when('HollaAtHolly/actors', {
+    .when('/actors', {
       templateUrl: 'views/actors.html',
       controller: 'actorsController'
     })
 
-    .when('HollaAtHolly/actors/:name', {
+    .when('/actors/:name', {
       templateUrl: 'views/actorDetail.html',
       controller: 'actorDetailController'
     })
 
-    .when('HollaAtHolly/new', {
+    .when('/new', {
       templateUrl: 'views/newActor.html',
       controller: 'newActorController'
     })
