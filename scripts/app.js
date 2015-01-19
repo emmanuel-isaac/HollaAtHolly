@@ -17,7 +17,7 @@ hollaAtHollyApp.config(['$routeProvider', '$locationProvider', function ($routeP
       templateUrl: 'views/layout.html'
     })
 
-    .when('/HollyAtHolly/actors', {
+    .when('/actors', {
       templateUrl: 'views/actors.html',
       controller: 'actorsController'
     })
