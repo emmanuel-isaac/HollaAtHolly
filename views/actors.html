@@ -7,7 +7,7 @@
         <li  class='col-md-3 col-xs-3' ng-repeat='actor in actors | filter: query | orderBy: orderProp'>
           <a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)' class='actor-name'>
             <p class='actor-tag'>{{actor.name}}</p><br/>
-            <img src="../img/{{actor.name}}.jpg" alt='{{actor.name}}'>
+            <img src="./img/{{actor.name}}.jpg" alt='{{actor.name}}'>
           </a><br/>
           <button ng-click='editActor(actor.name, actor.dateOfBirth, actor.sex, actor.rating, actor.lightSkinned, actor.about)' class='btn btn-default edit-button'>
             Edit Profile
