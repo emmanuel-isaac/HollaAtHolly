@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app='hollaAtHollyApp'>
+  <head>
+    <meta charset='utf-8'>
+    <title>meetHollywood</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet/responsive.css">
+    <link href='http://fonts.googleapis.com/css?family=Dosis:600|Raleway:500' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src='bower_components/angular/angular.js'></script>
+    <script type="text/javascript" src='bower_components/angular-route/angular-route.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.js'></script>
+    <script type="text/javascript" src='scripts/app.js'></script>
+    <script type="text/javascript" src='scripts/controllers.js'></script> 
+  </head>
+  <body>
+    <header>
+      <h1>meetHollywood</h1>
+      <nav>
+        <a href="#/new">Add New Actor</a>
+      </nav>
+    </header>
+    <section>
+      
+      <div ng-view></div>
+      
+    </section>
+    <footer>&copy 2015 Emmanuel Isaac</footer>
+  </body>
+</html>

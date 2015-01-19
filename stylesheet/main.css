@@ -1,0 +1,265 @@
+body {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),url('../img/background.jpg') no-repeat;
+  background-size: cover;
+  text-align: center;
+  max-width: 95%;
+}
+
+header {
+  background: #fff;
+  text-align: left;
+  position: relative;
+  left: 0;
+  width: 105%;
+  height: 50px;
+  padding-left: 30px;
+}
+
+nav {
+  float: right;
+  margin-right: 10px;
+}
+
+nav a {
+  position: relative;
+  top: -25px;
+  border-radius: 5px;
+  font-size: 1em;
+  text-decoration: none;
+  font-family: Dosis;
+  font-style: italic;
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-family: Dosis;
+  letter-spacing: 4px;
+  font-size: 2em;
+}
+
+.loading-img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 200px;
+  left: 18%;
+}
+
+.welcome-info {
+  color: #fff;
+  margin-top: 150px;
+}
+
+.enter-button {
+  margin: 30px auto 0;
+  width: 250px;
+  height: 50px;
+  background: lightblue;
+  color: white;
+  font-size: 1.2em;
+}
+
+h1 {
+  margin: 0 auto;
+  font-family: 'Raleway';
+  color: darkblue;
+
+}
+
+
+form {
+  margin: 0 20%;
+}
+
+.form-control:focus {
+  outline: 0;
+  border: thin green solid;
+}
+
+.homeButton {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 0 2em lightblue;
+}
+.home {
+  background: green;
+  width: 20%;
+  height: 4em;
+  color: white;
+  font-weight: bold;
+
+}
+
+footer {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 1.2em;
+  font-family: Raleway;
+  font-weight: 400;
+  box-shadow: 0 0 1em lightgray;
+}
+
+#actor-list {
+  text-align: left;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.actor-list {
+  margin-top: 50px;
+  list-style: none;
+}
+
+.actor-list li a {
+  color: white;
+}
+
+.search-input {
+  margin-left: 60px;
+  width: 30%;
+  height: 50px;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.search-input:focus {
+  outline: 0;
+  box-shadow: inset 0 0 1em darkblue;
+  border: thin blue solid;
+}
+
+.actor-list li {
+  text-align: center;
+}
+
+.editForm .form-control {
+  width: 120%;
+}
+
+#addForm,
+.edit-form {
+  border: thin #000 solid;
+  border-radius: 10px;
+  padding: 50px 0;
+  width: 80%;
+  margin: 0 auto;
+  background: #000;
+  opacity: .8;
+  box-shadow: 0 0 2em lightblue;
+}
+
+.add-movies {
+  margin-bottom: 20px;
+}
+
+.split {
+  height: 100px;
+}
+
+img {
+  width: 70%;
+  height: 200px;
+  border-radius: 5px;
+  margin-top: -5px;
+  box-shadow: 0em 0em 1em lightblue;
+}
+
+img:hover {
+  box-shadow: 0em 0em 3em lightblue;
+  width: 72%;
+}
+
+.loading-img:hover {
+  width: 80px;
+  height: 80px;
+}
+
+.edit-button {
+  width: 70%;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.actor-tag {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.edit-form {
+  text-align: center;
+}
+
+label {
+  color: #fff;
+}
+
+.edit-form {
+  color: #fff;
+}
+
+.add-movie-button {
+  position: relative;
+  bottom: 34px;
+  left: 45%;
+}
+
+#actor-detail {
+  color: white;
+  padding: 0 15% 20px;
+
+}
+
+.actor-detail-text {
+  margin-bottom: 50px;
+}
+
+#actor-detail img {
+  width: 40%;
+}
+
+#actor-detail p {
+  text-align: justify;
+  font-size: 1.2em;
+  line-height: 25px;
+  letter-spacing: 2px;
+  font-family: Dosis, sans-serif;
+}
+
+.actor-about {
+  text-align: justify;
+}
+
+.info-header {
+  margin-bottom: 30px;
+}
+
+button {
+  font-family: Dosis;
+  color: red;
+}
+
+input {
+  font-family: Raleway;
+  color: blue;
+}
+
+
+
+
+
+
+
+
+
+
+

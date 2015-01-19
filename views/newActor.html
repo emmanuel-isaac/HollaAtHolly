@@ -1,0 +1,59 @@
+<div class='homeButton'>
+  <a href='#/actors'><button class='btn btn-primary btn-lg home'>Go Back Home</button></a>
+</div>
+
+<div id='addForm' class='row'>
+  <form role='form' class='form-horizontal newActorForm'>
+    <div class='form-group'>
+      <input ng-model='name' type='text' class='form-control' id='addName' placeholder='Full Name'><br/>
+
+      <label for='addDay'>Date Of Birth (Day)</label>
+      <select name="select" ng-model='day' class='form-control' id='addDay'>
+        <option ng-repeat='day in days' value="{{day}}">{{day}}</option>
+      </select><br/>
+
+      <label for='addMonth'>Date Of Birth (Month)</label>
+      <select name="select" ng-model='month' class='form-control' id='addMonth'>
+        <option ng-repeat='month in months' value="{{month}}">{{month}}</option>
+      </select><br/>
+
+      <label for='addYear'>Date Of Birth (Year)</label>
+      <select name="select" ng-model='year' class='form-control' id='addYear'>
+        <option ng-repeat='year in years' value="{{year}}">{{year}}</option>
+      </select><br/>
+
+      <label for='addSex'>Sex</label>
+      <select name="select" ng-model='sex' class='form-control' id='addSex'>
+        <option value="male">male</option> 
+        <option value="female">female</option>
+      </select><br/>
+
+      <label for='addRating'>Rating</label>
+      <select name="select" ng-model='rating' class='form-control' id='addRating'>
+        <option value="1">1</option> 
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select><br/>
+
+      <input ng-model = 'about' type = 'text' class='form-control' id='addAbout' placeholder='About'><br/>
+
+      <div class="checkbox">
+        <label>
+        <input type="checkbox" value="" ng-model = 'lightSkinned'>
+        Light-Skinned
+        </label>
+      </div>
+
+    </div>
+  </form>
+
+  <form class='form-group form-horizontal'>
+    <input ng-model = 'movies' type ='text' class='form-control' id='addMovies' placeholder='Add Movies Actor Has Featured In. Click Add After Every Input'><br/>
+    <button ng-click='addToMovies()' class='btn btn-default'>Add</button><br/>
+  </form>
+
+  <button ng-click='addActor()' class='btn btn-lg btn-primary'>Submit</button>
+  
+</div>

@@ -1,0 +1,23 @@
+@media screen and (max-width: 940px) {
+  img {
+    /*width: 30px;*/
+    height: 100px;
+  }
+
+  .actor-name {
+    font-size: .5em;
+  }
+
+  .edit-button {
+    font-size: .6em;
+  }
+
+  .search-input {
+    width: 60%;
+  }
+
+  .actor-detail-image {
+    height: 200px;
+    margin-bottom: 30px;
+  }
+}
