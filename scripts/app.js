@@ -7,9 +7,13 @@ var hollaAtHollyApp = angular.module('hollaAtHollyApp', [
   'appControllers'
 ]);
 
-hollaAtHollyApp.config(['$routeProvider', function ($routeProvider) {
-  $routeProvider.
-    when('andela-eisaac.github.io/HollaAtHolly/', {
+hollaAtHollyApp.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+  $locationProvider.html5Mode(true);
+
+  $routeProvider
+
+    .when('/', {
       templateUrl: 'views/layout.html'
     })
 
@@ -29,6 +33,11 @@ hollaAtHollyApp.config(['$routeProvider', function ($routeProvider) {
     })
 
     .otherwise({
-      redirectTo: '/#/actors'
+      redirectTo: '/actors'
     });
 }]);
+
+angular.module('myApp', []).
+ config(function($locationProvider) {
+   $locationProvider.html5Mode(true);
+ });
