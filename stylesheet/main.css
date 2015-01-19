@@ -5,37 +5,53 @@ body {
     ),url('../img/background.jpg') no-repeat;
   background-size: cover;
   text-align: center;
+  max-width: 95%;
 }
 
 header {
   background: #fff;
   text-align: left;
   position: relative;
-  width: 100%;
+  left: 0;
+  width: 105%;
   height: 50px;
   padding-left: 30px;
 }
 
 nav {
   float: right;
-  /*text-decoration: none;*/
   margin-right: 10px;
 }
 
 nav a {
   position: relative;
   top: -25px;
-  /*border: thin darkblue solid;*/
   border-radius: 5px;
-  font-size: 1.5em;
+  font-size: 1em;
   text-decoration: none;
+  font-family: Dosis;
+  font-style: italic;
 }
-
 
 section {
   margin-top: 50px;
   margin-bottom: 50px;
 }
+
+h2 {
+  font-family: Dosis;
+  letter-spacing: 4px;
+  font-size: 2em;
+}
+
+.loading-img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: 200px;
+  left: 18%;
+}
+
 .welcome-info {
   color: #fff;
   margin-top: 150px;
@@ -87,13 +103,16 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  font-size: 1.2em;
+  font-family: Raleway;
+  font-weight: 400;
+  box-shadow: 0 0 1em lightgray;
 }
 
 #actor-list {
   text-align: left;
   margin-top: 20px;
   padding-top: 20px;
-  /*border: thin black solid;*/
 }
 
 .actor-list {
@@ -111,6 +130,12 @@ footer {
   height: 50px;
   padding-left: 20px;
   border-radius: 5px;
+}
+
+.search-input:focus {
+  outline: 0;
+  box-shadow: inset 0 0 1em darkblue;
+  border: thin blue solid;
 }
 
 .actor-list li {
@@ -154,6 +179,11 @@ img:hover {
   width: 72%;
 }
 
+.loading-img:hover {
+  width: 80px;
+  height: 80px;
+}
+
 .edit-button {
   width: 70%;
   margin-bottom: 20px;
@@ -190,15 +220,23 @@ label {
 }
 
 .actor-detail-text {
-  text-align: justify;
+  margin-bottom: 50px;
 }
 
 #actor-detail img {
   width: 40%;
 }
 
+#actor-detail p {
+  text-align: justify;
+  font-size: 1.2em;
+  line-height: 25px;
+  letter-spacing: 2px;
+  font-family: Dosis, sans-serif;
+}
+
 .actor-about {
-  text-align: left;
+  text-align: justify;
 }
 
 .info-header {
@@ -208,6 +246,11 @@ label {
 button {
   font-family: Dosis;
   color: red;
+}
+
+input {
+  font-family: Raleway;
+  color: blue;
 }
 
 

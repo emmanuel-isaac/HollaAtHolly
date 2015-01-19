@@ -1,10 +1,11 @@
 <div id='actor-list'>
   <div ng-hide='toggleEditForm'>
     <input ng-model='query' placeholder='Search Actors' class='search-input'>
+    <img src="../img/loading.gif" class='loading-img' ng-show='showLoading'>
     <ul class='row actor-list'>
       <div class='split'>
-        <li  class='col-md-3' ng-repeat='actor in actors | filter: query | orderBy: orderProp'>
-          <a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)'>
+        <li  class='col-md-3 col-xs-3' ng-repeat='actor in actors | filter: query | orderBy: orderProp'>
+          <a href="/#/actors/{{actor.name}}" ng-click='save(actor.name)' class='actor-name'>
             <p class='actor-tag'>{{actor.name}}</p><br/>
             <img src="../img/{{actor.name}}.jpg" alt='{{actor.name}}'>
           </a><br/>

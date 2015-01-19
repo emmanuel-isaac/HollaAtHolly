@@ -59,6 +59,8 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     window.location.reload();
   };
 
+  scope.showLoading = true;
+
   scope.months = [];
   scope.years = [];
   scope.days = [];
@@ -84,6 +86,12 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     console.log(data);
     scope.actors = data;
     scope.orderProp = 'name';
+    scope.showLoading = !scope.showLoading;
+  })
+
+  .error(function (statusCode) {
+    console.log(statusCode);
+    scope.showLoading = !scope.showLoading;
   });
 
   scope.save = function (name) {
