@@ -17,23 +17,23 @@ hollaAtHollyApp.config(['$routeProvider', '$locationProvider', function ($routeP
       templateUrl: 'views/layout.html'
     })
 
-    .when('/actors', {
+    .when('HollaAtHolly/actors', {
       templateUrl: 'views/actors.html',
       controller: 'actorsController'
     })
 
-    .when('/actors/:name', {
+    .when('HollaAtHolly/actors/:name', {
       templateUrl: 'views/actorDetail.html',
       controller: 'actorDetailController'
     })
 
-    .when('/new', {
+    .when('HollaAtHolly/new', {
       templateUrl: 'views/newActor.html',
       controller: 'newActorController'
     })
 
     .otherwise({
-      redirectTo: '/actors'
+      redirectTo: 'HollyAtHolly/actors'
     });
 }]);
 
