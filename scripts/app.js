@@ -9,7 +9,7 @@ var hollaAtHollyApp = angular.module('hollaAtHollyApp', [
 
 hollaAtHollyApp.config(['$routeProvider', function ($routeProvider) {
   $routeProvider.
-    when('/', {
+    when('andela-eisaac.github.io/HollaAtHolly/', {
       templateUrl: 'views/layout.html'
     })
 
