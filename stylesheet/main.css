@@ -253,6 +253,12 @@ input {
   color: blue;
 }
 
+.welcome-info p {
+  font-family: 'Great Vibes';
+  line-height: 30px;
+  font-size: 2em;
+  letter-spacing: 2px;
+}
 
 
 
