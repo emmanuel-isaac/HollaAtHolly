@@ -5,20 +5,6 @@ var appControllers = angular.module('appControllers', []);
 
 var actorName;
 
-var allowedDateOfBirth = function (days, months, years) {
-  for (var i=1; i<=31; i++) {
-    days.push(i);
-  }
-
-  for (var i=1; i<=12; i++) {
-    months.push(i);
-  }
-
-  for (var i=1900; i<=2015; i++) {
-    years.push(i);
-  }
-};
-
 /*NAME ENTRY VALIDATOR FUNCTION*/
 var nameValidator = function (name) {
   if (name == undefined) {
@@ -86,7 +72,17 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   scope.years = []; // scoped variable to hold allowed years entry
   scope.days = []; // scoped variable to hold allowed days entry
 
-  allowedDateOfBirth(scope.days, scope.months, scope.years);
+  for (var i=1; i<=12; i++) {
+    scope.months.push(i);
+  } // for loop to loop through 12 months
+
+  for (var i=1900; i<=2015; i++) {
+    scope.years.push(i);
+  } // for looop to loop through year 1900 to year 2015
+
+  for (var i=1; i<=31; i++) {
+    scope.days.push(i);
+  } // for loop to loop through all days in a month
 
   // http method to get info from the API
   http({
@@ -244,7 +240,7 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
     console.log(scope.day);
     console.log(scope.month);
 
-    // validation before submitting user input
+    // validation before submitting user
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(scope.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       console.log('sending');
       http({
