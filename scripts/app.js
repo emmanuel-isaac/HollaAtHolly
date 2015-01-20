@@ -36,8 +36,3 @@ hollaAtHollyApp.config(['$routeProvider', '$locationProvider', function ($routeP
       redirectTo: 'HollyAtHolly/actors'
     });
 }]);
-
-angular.module('myApp', []).
- config(function($locationProvider) {
-   $locationProvider.html5Mode(true);
- });
