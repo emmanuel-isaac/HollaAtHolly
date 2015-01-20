@@ -1,9 +1,25 @@
 'use strict';
 
+// appControllers Module
 var appControllers = angular.module('appControllers', []);
 
 var actorName;
 
+var allowedDateOfBirth = function (days, months, years) {
+  for (var i=1; i<=31; i++) {
+    days.push(i);
+  }
+
+  for (var i=1; i<=12; i++) {
+    months.push(i);
+  }
+
+  for (var i=1900; i<=2015; i++) {
+    years.push(i);
+  }
+};
+
+/*NAME ENTRY VALIDATOR FUNCTION*/
 var nameValidator = function (name) {
   if (name == undefined) {
     alert('Please, enter a Name');
@@ -16,6 +32,7 @@ var nameValidator = function (name) {
   }
 };
 
+/*DAY ENTRY VALIDATOR FUNCTION*/
 var dayValidator = function (day) {
   if (day == undefined) {
     alert('Please, fill the \'day\' field');
@@ -23,6 +40,7 @@ var dayValidator = function (day) {
   } else {return true};
 };
 
+/*MONTH ENTRY VALIDATOR FUNCTION*/
 var monthValidator = function (month) {
   if (month == undefined) {
     alert('Please, fill the \'month\' field');
@@ -30,6 +48,7 @@ var monthValidator = function (month) {
   } else return true;
 };
 
+/*YEAR ENTRY VALIDATOR FUNCTION*/
 var yearValidator = function (year) {
   if (year == undefined) {
     alert('Please, fill the \'year\' field');
@@ -37,6 +56,7 @@ var yearValidator = function (year) {
   } else return true;
 };
 
+/*RATING ENTRY VALIDATOR FUNCTION*/
 var ratingValidator = function (rating) {
   if (rating == undefined) {
     alert('Please, fill the \'rating\' field');
@@ -44,6 +64,7 @@ var ratingValidator = function (rating) {
   } else return true;
 };
 
+/*SEX ENTRY VALIDATOR FUNCTION*/
 var sexValidator = function (sex) {
   if (sex == undefined) {
     alert('Please, fill the \'sex\' field');
@@ -53,30 +74,21 @@ var sexValidator = function (sex) {
   }
 };
 
-
+/*CONTROLLERS SERVING THE ACTORS.HTML PAGE*/
 appControllers.controller('actorsController', ['$scope', '$http', '$location', '$window', function (scope, http, location, window) {
   scope.reload = function () {
     window.location.reload();
   };
 
-  scope.showLoading = true;
+  scope.showLoading = true; // Showing the loading GIF image
 
-  scope.months = [];
-  scope.years = [];
-  scope.days = [];
+  scope.months = []; // scoped variable to hold allowed months entry
+  scope.years = []; // scoped variable to hold allowed years entry
+  scope.days = []; // scoped variable to hold allowed days entry
 
-  for (var i=1; i<=12; i++) {
-    scope.months.push(i);
-  }
+  allowedDateOfBirth(scope.days, scope.months, scope.years);
 
-  for (var i=1900; i<=2015; i++) {
-    scope.years.push(i);
-  }
-
-  for (var i=1; i<=31; i++) {
-    scope.days.push(i);
-  }
-
+  // http method to get info from the API
   http({
     method: 'GET',
     url: 'https://holly-diary.herokuapp.com/actors'
@@ -99,11 +111,12 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     actorName = name;
   };
 
-  scope.addedMovies = [];
-  scope.oldName;
-  scope.oldRating;
-  scope.toggleEditForm = false;
+  scope.addedMovies = []; // empty array for added movies to be pushed into
+  scope.oldName; // old name of actor prior to editing
+  scope.oldRating; // old rating of actor prior to editing for the calculation of average rating
+  scope.toggleEditForm = false; // show or hide edit form
 
+  // function to show the edit form and fill in the input boxes with the actor information
   scope.editActor = function (name, date, sex, rating, lightSkinned, about) {
     scope.toggleEditForm = !scope.toggleEditForm;
     scope.oldName = name;
@@ -118,16 +131,19 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     scope.about = about;
   };
 
+  // function to push added movies into the previously declared empty array
   scope.addMovies = function () {
     scope.addedMovies.push(scope.movies);
     scope.movies = '';
     console.log(scope.addedMovies);
   };
 
+  // function to determine the average rating
   scope.average = function (a, b) {
     return (a + b)/2;
   };
 
+  // function to submit changes to server
   scope.submitChanges = function  () {
     var actorObject = {
       name: scope.name,
@@ -141,6 +157,7 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
       about: scope.about
     };
 
+    // validator of user input before submission
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(actorObject.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       http({
         method: 'PUT',
@@ -162,13 +179,17 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     
   };
 
+  // function to hide the edit form
   scope.close = function () {
     scope.toggleEditForm = !scope.toggleEditForm;
   };
 
 }]);
 
+
+/*ACTOR DETAIL CONTROLLER SERVING THE actorDetail.html VIEW*/
 appControllers.controller('actorDetailController', ['$scope', '$http', function (scope, http) {
+  // http get method to pull actor information from the database
   http({
     method: 'GET',
     url: 'https://holly-diary.herokuapp.com/actors/' + actorName
@@ -223,6 +244,7 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
     console.log(scope.day);
     console.log(scope.month);
 
+    // validation before submitting user input
     if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(scope.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
       console.log('sending');
       http({
