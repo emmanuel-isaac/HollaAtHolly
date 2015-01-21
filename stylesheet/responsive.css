@@ -7,13 +7,13 @@
     min-height: 100%;
   }
 
-  img {
+  img, .actor-detail-image {
     /*width: 30px;*/
     height: 100px;
     width: auto;
   }
 
-  img:hover {
+  img, .actor-detail-image:hover {
     height: 100px;
     width: auto;
   }
