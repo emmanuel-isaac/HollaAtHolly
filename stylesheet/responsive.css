@@ -13,6 +13,11 @@
     width: auto;
   }
 
+  img:hover {
+    height: 100px;
+    width: auto;
+  }
+
   .loading-img {
     position: relative;
     top: 200px;
