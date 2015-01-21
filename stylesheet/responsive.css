@@ -1,4 +1,7 @@
 @media screen and (max-width: 940px) {
+  body {
+    background-size: contain;
+  }
   img {
     /*width: 30px;*/
     height: 100px;
