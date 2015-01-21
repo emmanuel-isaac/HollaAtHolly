@@ -1,7 +1,13 @@
 @media screen and (max-width: 940px) {
   body {
-    background-size: contain;
+    background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.6)
+    ),url('../img/background.jpg') no-repeat;
+    min-width: 100%;
+    min-height: 100%;
   }
+
   img {
     /*width: 30px;*/
     height: 100px;
