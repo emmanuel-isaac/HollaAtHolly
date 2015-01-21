@@ -13,6 +13,12 @@
     width: auto;
   }
 
+  .loading-img {
+    position: relative;
+    top: 200px;
+    left: auto;  
+  }
+
   .actor-name {
     font-size: .5em;
   }
