@@ -85,7 +85,7 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
     scope.days.push(i);
   } // for loop to loop through all days in a month
 
-  for (var i=0.5; i<=5; i=+0.5) {
+  for (var i=0.5; i<=5; i+=0.5) {
     scope.ratings.push(i);
   } // for loop to looop through all values of rating
 
@@ -221,7 +221,7 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
     scope.days.push(i);
   }
 
-  for (var i=0.5; i<=5; i=+0.5) {
+  for (var i=0.5; i<=5; i+=0.5) {
     scope.ratings.push(i);
   } // for loop to looop through all values of rating
 
