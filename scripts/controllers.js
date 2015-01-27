@@ -71,6 +71,7 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   scope.months = []; // scoped variable to hold allowed months entry
   scope.years = []; // scoped variable to hold allowed years entry
   scope.days = []; // scoped variable to hold allowed days entry
+  scope.ratings = []; // scoped variable to hold all rating values
 
   for (var i=1; i<=12; i++) {
     scope.months.push(i);
@@ -83,6 +84,10 @@ appControllers.controller('actorsController', ['$scope', '$http', '$location', '
   for (var i=1; i<=31; i++) {
     scope.days.push(i);
   } // for loop to loop through all days in a month
+
+  for (var i=0.5; i<=5; i=+0.5) {
+    scope.ratings.push(i);
+  } // for loop to looop through all values of rating
 
   // http method to get info from the API
   http({
@@ -202,6 +207,7 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
   scope.months = [];
   scope.years = [];
   scope.days = [];
+  scope.ratings = [];
 
   for (var i=1; i<=12; i++) {
     scope.months.push(i);
@@ -214,6 +220,10 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
   for (var i=1; i<=31; i++) {
     scope.days.push(i);
   }
+
+  for (var i=0.5; i<=5; i=+0.5) {
+    scope.ratings.push(i);
+  } // for loop to looop through all values of rating
 
   scope.films = [];
   scope.addToMovies = function () {

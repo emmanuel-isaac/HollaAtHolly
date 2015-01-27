@@ -30,11 +30,7 @@
 
       <label for='addRating'>Rating</label>
       <select name="select" ng-model='rating' class='form-control' id='addRating'>
-        <option value="1">1</option> 
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        <option ng-repeat='rating in ratings' value="{{ratings}}">{{rating}}</option>
       </select><br/>
 
       <input ng-model = 'about' type = 'text' class='form-control' id='addAbout' placeholder='About'><br/>
