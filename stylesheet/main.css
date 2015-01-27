@@ -168,6 +168,7 @@ footer {
 
 img {
   width: auto;
+  max-width: 70%;
   height: 200px;
   border-radius: 5px;
   margin-top: -5px;
@@ -176,7 +177,6 @@ img {
 
 img:hover {
   box-shadow: 0em 0em 3em lightblue;
-  width: 72%;
 }
 
 .loading-img:hover {
