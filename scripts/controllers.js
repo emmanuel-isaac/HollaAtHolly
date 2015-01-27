@@ -47,12 +47,14 @@ var ratingValidator = function (rating) {
   if (rating == undefined) {
     alert('Please, fill the \'rating\' field');
     return false;
-  } else if (rating >= 1 && rating <= 5) {
-    return true;
   } else if (isNaN(rating)) {
+    alert('Please, enter a number in the \'rating\' field');
     return false;
-  } else return false;
-};
+  } else if (rating < 1 || rating > 5) {
+    alert('Please, enter a value between 1 and 5 in the \'rating\' field');
+    return false;
+  } else return true;
+}; 
 
 /*SEX ENTRY VALIDATOR FUNCTION*/
 var sexValidator = function (sex) {
