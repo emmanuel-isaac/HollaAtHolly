@@ -47,10 +47,11 @@ var ratingValidator = function (rating) {
   if (rating == undefined) {
     alert('Please, fill the \'rating\' field');
     return false;
-  } else if (rating < 1 || rating > 5) {
-    alert('Please, input a value between 1 and 5 in the \'rating\' field');
+  } else if (rating >= 1 && rating <= 5) {
+    return true;
+  } else if (isNaN(rating)) {
     return false;
-  } else return true;
+  } else return false;
 };
 
 /*SEX ENTRY VALIDATOR FUNCTION*/
@@ -244,7 +245,7 @@ appControllers.controller('newActorController', ['$scope', '$http','$location', 
     console.log(scope.month);
 
     // validation before submitting user
-    if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(scope.month) && yearValidator(actorObject.year) && ratingValidator(actorObject.rating) && sexValidator(actorObject.sex)) {
+    if (nameValidator(actorObject.name) && dayValidator(actorObject.day) && monthValidator(scope.month) && yearValidator(actorObject.year) && ratingValidator(scope.rating) && sexValidator(actorObject.sex)) {
       console.log('sending');
       http({
       method: 'POST',
