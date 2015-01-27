@@ -168,7 +168,7 @@ footer {
 
 img {
   width: 70%;
-  height: 200px;
+  height: auto;
   border-radius: 5px;
   margin-top: -5px;
   box-shadow: 0em 0em 1em lightblue;
